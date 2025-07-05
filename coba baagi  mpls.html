@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengumuman Kelompok MPLS - SMP Negeri 2 Brebes</title>
+    <style>
+        :root {
+            --primary: #0066cc;
+            --secondary: #f8f9fa;
+            --accent: #ffcc00;
+            --text: #333;
+            --light: #fff;
+            --border: #ddd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f7ff;
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+            background-image: linear-gradient(120deg, #e0f0ff 0%, #f8fdff 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--light);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #004a99 100%);
+            color: var(--light);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .school-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
+        }
+        
+        .logo-inner {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+            line-height: 1.2;
+            padding: 5px;
+        }
+        
+        .school-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .school-text p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .header-title {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-title h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+        
+        main {
+            padding: 30px;
+        }
+        
+        .login-section {
+            background: var(--secondary);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .login-section h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            max-width: 500px;
+            margin: 0 auto 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+            text-align: left;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+        }
+        
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 102, 204, 0.2);
+        }
+        
+        button:hover {
+            background: #0055aa;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 102, 204, 0.3);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .result-section {
+            display: none;
+            background: var(--secondary);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .result-section h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 15px;
+        }
+        
+        .student-info {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed var(--border);
+        }
+        
+        .info-label {
+            font-weight: 600;
+            width: 180px;
+            color: var(--primary);
+        }
+        
+        .info-value {
+            flex: 1;
+        }
+        
+        .group-badge {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, #004a99 100%);
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .group-badge .label {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .group-badge .group {
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .search-again {
+            text-align: center;
+            margin-top: 25px;
+        }
+        
+        .instructions {
+            background: #fffde7;
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: var(--secondary);
+        }
+        
+        .note {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .school-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .header-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .header-title h3 {
+                font-size: 1.2rem;
+            }
+            
+            .info-row {
+                flex-direction: column;
+            }
+            
+            .info-label {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="school-info">
+                <div class="logo">
+                    <div class="logo-inner">
+                        SMP NEGERI 2 BREBES
+                    </div>
+                </div>
+                <div class="school-text">
+                    <h1>SMP NEGERI 2 BREBES</h1>
+                    <p>Terakreditasi A - Sekolah Berbasis Teknologi</p>
+                </div>
+            </div>
+            <div class="header-title">
+                <h2>PENGUMUMAN PEMBAGIAN KELOMPOK MPLS</h2>
+                <h3>Tahun Pelajaran 2025/2026</h3>
+            </div>
+        </header>
+        
+        <main>
+            <div class="login-section">
+                <h3>MASUKKAN NISN ANDA</h3>
+                <div class="form-group">
+                    <label for="nisn">Nomor Induk Siswa Nasional (NISN)</label>
+                    <input type="text" id="nisn" placeholder="Contoh: 134344734" autocomplete="off">
+                </div>
+                <button id="loginBtn">LIHAT PENGUMUMAN</button>
+                
+                <div class="instructions">
+                    <p><strong>Petunjuk:</strong> Masukkan NISN (Nomor Induk Siswa Nasional) Anda pada kolom di atas, kemudian klik tombol "Lihat Pengumuman" untuk mengetahui kelompok MPLS Anda.</p>
+                </div>
+                
+                <p class="note">Pastikan Anda memasukkan NISN yang benar. Data yang ditampilkan bersifat rahasia dan hanya dapat diakses oleh siswa yang bersangkutan.</p>
+            </div>
+            
+            <div class="result-section" id="resultSection">
+                <h3>DATA SISWA DAN KELOMPOK MPLS</h3>
+                <div class="student-info">
+                    <div class="info-row">
+                        <div class="info-label">Nama Lengkap</div>
+                        <div class="info-value" id="nama">-</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">NISN</div>
+                        <div class="info-value" id="nisnResult">-</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Jenis Kelamin</div>
+                        <div class="info-value" id="gender">-</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Asal Sekolah</div>
+                        <div class="info-value" id="sekolahAsal">-</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Jalur Pendaftaran</div>
+                        <div class="info-value" id="jalur">-</div>
+                    </div>
+                </div>
+                
+                <div class="group-badge">
+                    <div class="label">KELOMPOK MPLS ANDA</div>
+                    <div class="group" id="kelompok">-</div>
+                </div>
+                
+                <div class="search-again">
+                    <button id="backBtn">CARI DATA LAIN</button>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2025 SMP Negeri 2 Brebes. Hak Cipta Dilindungi.</p>
+            <p>Jl. Jend. Sudirman No. 123, Brebes, Jawa Tengah | Telp: (0283) 1234567</p>
+        </footer>
+    </div>
+
+    <script>
+        // Data siswa dari file CSV yang telah dikonversi
+        const siswaData = [
+            {"No":"1","NISN":"134344734","Nama":"Abdul Hakim Rafsanjani","Gender":"L","Sekolah Asal":"SDN BREBES 02","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"2","NISN":"3123932690","Nama":"Adzkia Zalfa Mazaya Nafeeza","Gender":"P","Sekolah Asal":"SDN Bulusari 01","Jalur":"KKO","KELOMPOK MPLS":"A"},
+            {"No":"3","NISN":"3125034282","Nama":"Alfida Mumtazah","Gender":"P","Sekolah Asal":"MIS MUHAMMADIYAH","Jalur":"Afirmasi","KELOMPOK MPLS":"A"},
+            {"No":"4","NISN":"134335437","Nama":"Anindya Fahira Sakhi","Gender":"P","Sekolah Asal":"SDN BREBES 02","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"5","NISN":"3122114087","Nama":"Anisa Nasya Salsabila","Gender":"P","Sekolah Asal":"SDN BREBES 02","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"6","NISN":"123659212","Nama":"Aqilla Syaz Arkan","Gender":"L","Sekolah Asal":"SDN BREBES 02","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"7","NISN":"116884045","Nama":"Arifatul Afifah Al Afwanah","Gender":"P","Sekolah Asal":"SDN GANDASULI 02","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"8","NISN":"138920776","Nama":"Arunia Rokhsa","Gender":"P","Sekolah Asal":"SDN GANDASULI 02","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"9","NISN":"127859712","Nama":"Athaleta Gendis Morreno","Gender":"P","Sekolah Asal":"SDIT Nurul Hidayah","Jalur":"KKO","KELOMPOK MPLS":"A"},
+            {"No":"10","NISN":"125738089","Nama":"Bayyin Nazrul Haq","Gender":"L","Sekolah Asal":"SDN Brebes 03","Jalur":"KKO","KELOMPOK MPLS":"A"},
+            {"No":"11","NISN":"128243397","Nama":"Bilqis Aisyah Azahra","Gender":"P","Sekolah Asal":"SDN BREBES 09","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"12","NISN":"129941197","Nama":"Cahya Qur'ani Indah Sawitri","Gender":"P","Sekolah Asal":"SDN LIMB. KULON 01","Jalur":"Prestasi","KELOMPOK MPLS":"A"},
+            {"No":"13","NISN":"138754492","Nama":"Chelsea Widia Aulia","Gender":"P","Sekolah Asal":"SDN KEBOLEDAN 01","Jalur":"Prestasi","KELOMPOK MPLS":"A"},
+            {"No":"14","NISN":"3126703366","Nama":"Danesha Azzahra Putrideana","Gender":"P","Sekolah Asal":"SDIT HARAPAN UMAT","Jalur":"Prestasi","KELOMPOK MPLS":"A"},
+            {"No":"15","NISN":"126094560","Nama":"Denis Fakih Ramadhaniar","Gender":"L","Sekolah Asal":"SDN PEMARON 01","Jalur":"Prestasi","KELOMPOK MPLS":"A"},
+            {"No":"16","NISN":"128166651","Nama":"Faeyza Caesar Arvin","Gender":"L","Sekolah Asal":"SDN Brebes 03","Jalur":"KKO","KELOMPOK MPLS":"A"},
+            {"No":"17","NISN":"3137833213","Nama":"Fajriyah Nada Salsabila","Gender":"P","Sekolah Asal":"MIS ASY SYAFI'IYYAH 03","Jalur":"Prestasi","KELOMPOK MPLS":"A"},
+            {"No":"18","NISN":"3139961969","Nama":"Fatin Khumaeroh","Gender":"P","Sekolah Asal":"SDN LEMBARAWA 02","Jalur":"Afirmasi","KELOMPOK MPLS":"A"},
+            {"No":"19","NISN":"139464185","Nama":"Fazal Muttaqin","Gender":"L","Sekolah Asal":"SDN BREBES 03","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"20","NISN":"3136083586","Nama":"Febby Ades Utami","Gender":"P","Sekolah Asal":"SDN BREBES 09","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"21","NISN":"3131363836","Nama":"Frichsya Dwi Arina","Gender":"P","Sekolah Asal":"SDN BREBES 02","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"22","NISN":"3128978102","Nama":"Khalida Azka Zareen","Gender":"P","Sekolah Asal":"SDIT AHMAD YANI","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"23","NISN":"122046800","Nama":"M. Al Fath Arraya","Gender":"L","Sekolah Asal":"SDN PADASUGIH 02","Jalur":"Prestasi","KELOMPOK MPLS":"A"},
+            {"No":"24","NISN":"3136182321","Nama":"Maharani Gea Priambodo","Gender":"P","Sekolah Asal":"SDN KLAMPOK 01","Jalur":"Prestasi","KELOMPOK MPLS":"A"},
+            {"No":"25","NISN":"138424709","Nama":"Malika Kayana Putri","Gender":"P","Sekolah Asal":"SDN BREBES 01","Jalur":"Prestasi","KELOMPOK MPLS":"A"},
+            {"No":"26","NISN":"128575391","Nama":"Muh. Luthfan Al-Fatin Jajuli","Gender":"L","Sekolah Asal":"SDN Krasak 03","Jalur":"KKO","KELOMPOK MPLS":"A"},
+            {"No":"27","NISN":"3128625130","Nama":"Muhammad Iqbal Putra Purnomo","Gender":"L","Sekolah Asal":"SDN BREBES 01","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"28","NISN":"137493253","Nama":"Muhammad Nur Fauzan","Gender":"L","Sekolah Asal":"SDN PEBATAN 01","Jalur":"Afirmasi","KELOMPOK MPLS":"A"},
+            {"No":"29","NISN":"138819397","Nama":"Naura Nadhifa Annida","Gender":"P","Sekolah Asal":"SDN BREBES 03","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"30","NISN":"121683859","Nama":"Naureen Fathyaturahma Hakim","Gender":"P","Sekolah Asal":"SDN BREBES 03","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"31","NISN":"3121487915","Nama":"Panjanu Kazima El Shafar","Gender":"L","Sekolah Asal":"SDIT HARAPAN UMAT","Jalur":"Prestasi","KELOMPOK MPLS":"A"},
+            {"No":"32","NISN":"125812098","Nama":"Pritta Nur Faiza","Gender":"P","Sekolah Asal":"SDN PASARBATANG 01","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"33","NISN":"125557537","Nama":"Revan Mulya Indratma","Gender":"L","Sekolah Asal":"SDN BREBES 03","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"34","NISN":"136451850","Nama":"Rizqon Aji Susilo","Gender":"L","Sekolah Asal":"SDN PASARBATANG 03","Jalur":"Afirmasi","KELOMPOK MPLS":"A"},
+            {"No":"35","NISN":"133966056","Nama":"Sabiq Fuadi Salami","Gender":"L","Sekolah Asal":"SDN BREBES 02","Jalur":"Domisili","KELOMPOK MPLS":"A"},
+            {"No":"36","NISN":"3138027526","Nama":"Saddam Ady Baskoro","Gender":"L","Sekolah Asal":"SDN PULOSARI 03","Jalur":"Afirmasi","KELOMPOK MPLS":"A"},
+            {"No":"37","NISN":"133071026","Nama":"Samuel Rafael Batubara","Gender":"L","Sekolah Asal":"SDN Brebes 06","Jalur":"KKO","KELOMPOK MPLS":"A"},
+            {"No":"38","NISN":"131033289","Nama":"Sinta Bella","Gender":"P","Sekolah Asal":"SDN KRASAK 02","Jalur":"Afirmasi","KELOMPOK MPLS":"A"},
+            {"No":"39","NISN":"137081107","Nama":"Acquila Hasna Faezya","Gender":"P","Sekolah Asal":"SDIT NURUL HIDAYAH","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"40","NISN":"3138222812","Nama":"Adiba Fathin Az Zhaqila","Gender":"P","Sekolah Asal":"MIN 6 BREBES","Jalur":"Prestasi","KELOMPOK MPLS":"B"},
+            {"No":"41","NISN":"3134865313","Nama":"Arina Hayatun Nafia","Gender":"P","Sekolah Asal":"SDN LUWUNGRAGI 01","Jalur":"Prestasi","KELOMPOK MPLS":"B"},
+            {"No":"42","NISN":"3124512163","Nama":"Arwen Kamil Aulia","Gender":"P","Sekolah Asal":"SDN BREBES 01","Jalur":"Afirmasi","KELOMPOK MPLS":"B"},
+            {"No":"43","NISN":"3129960412","Nama":"Aulia Trisya Nafilatullaily","Gender":"P","Sekolah Asal":"MIN 6 BREBES","Jalur":"Prestasi","KELOMPOK MPLS":"B"},
+            {"No":"44","NISN":"129268588","Nama":"Aura Anindya Maheswari","Gender":"P","Sekolah Asal":"SDIT NURUL HIDAYAH","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"45","NISN":"3131703112","Nama":"Azhar Dwi Nashrullah","Gender":"L","Sekolah Asal":"MIS AL HIDAYAH","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"46","NISN":"137176965","Nama":"Citra Ayuningrum Anandyta P.","Gender":"P","Sekolah Asal":"SDN BREBES 03","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"47","NISN":"138060797","Nama":"Deryl Nathaniel Hattu","Gender":"L","Sekolah Asal":"SDN Brebes 03","Jalur":"KKO","KELOMPOK MPLS":"B"},
+            {"No":"48","NISN":"133665363","Nama":"Dewi Sartika","Gender":"P","Sekolah Asal":"SDN KRASAK 02","Jalur":"Afirmasi","KELOMPOK MPLS":"B"},
+            {"No":"49","NISN":"125324227","Nama":"Dimas Faqih Mubarok","Gender":"L","Sekolah Asal":"SDN TENGKI 04","Jalur":"Afirmasi","KELOMPOK MPLS":"B"},
+            {"No":"50","NISN":"134670854","Nama":"Dwi Annisa Fitriyani","Gender":"P","Sekolah Asal":"SDN KALIKAMAL","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"51","NISN":"123262829","Nama":"Fadey Evan Fadillah","Gender":"L","Sekolah Asal":"SDN BREBES 01","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"52","NISN":"137946819","Nama":"Fattih Arga Baihaqi","Gender":"L","Sekolah Asal":"MIS MUH.","Jalur":"Mutasi","KELOMPOK MPLS":"B"},
+            {"No":"53","NISN":"3131696775","Nama":"Fika Dwi Amanda","Gender":"P","Sekolah Asal":"SDN TERLANGU 01","Jalur":"Prestasi","KELOMPOK MPLS":"B"},
+            {"No":"54","NISN":"3136952757","Nama":"Ghasani Ichwandhita","Gender":"P","Sekolah Asal":"SDN Brebes 10","Jalur":"KKO","KELOMPOK MPLS":"B"},
+            {"No":"55","NISN":"129091114","Nama":"Ghina Rahmawati","Gender":"P","Sekolah Asal":"SDN Wanasari 01","Jalur":"KKO","KELOMPOK MPLS":"B"},
+            {"No":"56","NISN":"3139434172","Nama":"Gilang Wahyu Ramadhan","Gender":"L","Sekolah Asal":"SDN BREBES 02","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"57","NISN":"125514843","Nama":"Gristin Syafitri Putri","Gender":"P","Sekolah Asal":"SDN LIM. WETAN 01","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"58","NISN":"122205321","Nama":"Hani Pambudi","Gender":"L","Sekolah Asal":"SDN WANASARI 01","Jalur":"Afirmasi","KELOMPOK MPLS":"B"},
+            {"No":"59","NISN":"122561006","Nama":"Iddo Andrias Widyanto","Gender":"L","Sekolah Asal":"SDN MANGKU. 8","Jalur":"Prestasi","KELOMPOK MPLS":"B"},
+            {"No":"60","NISN":"3123795163","Nama":"Jauhara Ahnufa Maulana","Gender":"P","Sekolah Asal":"SDN KUPU 01","Jalur":"Prestasi","KELOMPOK MPLS":"B"},
+            {"No":"61","NISN":"3135785302","Nama":"Kagendra Nugroho Cristy","Gender":"L","Sekolah Asal":"SDN BREBES 03","Jalur":"Prestasi","KELOMPOK MPLS":"B"},
+            {"No":"62","NISN":"3133790647","Nama":"Keanu Radja Mahesa","Gender":"L","Sekolah Asal":"SDN Brebes 03","Jalur":"KKO","KELOMPOK MPLS":"B"},
+            {"No":"63","NISN":"3126632690","Nama":"Khansaa Aqila Az- Zahra","Gender":"P","Sekolah Asal":"SDN TERLANGU 01","Jalur":"Prestasi","KELOMPOK MPLS":"B"},
+            {"No":"64","NISN":"3127611397","Nama":"Marsya Selma Octaviani","Gender":"P","Sekolah Asal":"SDN WANGANDALEM 03","Jalur":"Afirmasi","KELOMPOK MPLS":"B"},
+            {"No":"65","NISN":"3121622671","Nama":"Mika Firly Azkia","Gender":"P","Sekolah Asal":"SDN GANDASULI 02","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"66","NISN":"3137289299","Nama":"Muh. Asnaf Gunawan","Gender":"L","Sekolah Asal":"SDTQ AL IKHLAS","Jalur":"Afirmasi","KELOMPOK MPLS":"B"},
+            {"No":"67","NISN":"128085019","Nama":"Muhammad Al Fadilah","Gender":"L","Sekolah Asal":"SDN KALIG. KULON 01","Jalur":"Prestasi","KELOMPOK MPLS":"B"},
+            {"No":"68","NISN":"124952983","Nama":"Muhammad Fasya Fajriansah","Gender":"L","Sekolah Asal":"SDN BREBES 02","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"69","NISN":"139218569","Nama":"Nabil Kalijaga Pradistyo","Gender":"L","Sekolah Asal":"SDIT NURUL HIDAYAH","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"70","NISN":"132904704","Nama":"Nadhifa Yusa Zahratunnida","Gender":"P","Sekolah Asal":"SDIT NURUL HIDAYAH","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"71","NISN":"3138235778","Nama":"Nur Mukhamad Nizam R.","Gender":"L","Sekolah Asal":"SDN GANDASULI 02","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"72","NISN":"3122192605","Nama":"Raffa Villanova","Gender":"L","Sekolah Asal":"SDN BREBES 01","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"73","NISN":"122662760","Nama":"Raihanah Mutia Azzahra","Gender":"P","Sekolah Asal":"SDIT HARUM","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"74","NISN":"121024350","Nama":"Roselyn Dyah Putri Kamaratih","Gender":"P","Sekolah Asal":"SDN BREBES 03","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"75","NISN":"3123316701","Nama":"Shelly Anindya Kirana","Gender":"P","Sekolah Asal":"SDN BREBES 01","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"76","NISN":"3131506688","Nama":"Sofia Yuliana","Gender":"P","Sekolah Asal":"SDN GANDASULI 02","Jalur":"Domisili","KELOMPOK MPLS":"B"},
+            {"No":"77","NISN":"3122199998","Nama":"Aira Ade Abheeghail","Gender":"P","Sekolah Asal":"MIN 6 BREBES","Jalur":"Domisili","KELOMPOK MPLS":"C"},
+            {"No":"78","NISN":"128430175","Nama":"Alif Bayhaqul Ghibran","Gender":"L","Sekolah Asal":"MIS CUT NYAK DIEN","Jalur":"Prestasi","KELOMPOK MPLS":"C"},
+            {"No":"79","NISN":"3129389331","Nama":"Almo Tri Mueler S Limbong","Gender":"L","Sekolah Asal":"SDN Brebes 03","Jalur":"KKO","KELOMPOK MPLS":"C"},
+            {"No":"80","NISN":"125021782","Nama":"Alzena Jinandaditya","Gender":"P","Sekolah Asal":"SDIT NURUL HIDAYAH","Jalur":"Prestasi","KELOMPOK MPLS":"C"},
+            {"No":"81","NISN":"129213729","Nama":"Angga Richadt Ardiansyah","Gender":"L","Sekolah Asal":"SDN SIASEM 01","Jalur":"Domisili","KELOMPOK MPLS":"C"},
+            {"No":"82","NISN":"3139914595","Nama":"Anin Dwi Anggita","Gender":"P","Sekolah Asal":"SDN SIASEM 01","Jalur":"Prestasi","KELOMPOK MPLS":"C"},
+            {"No":"83","NISN":"132845553","Nama":"Azri Mustofa Amin","Gender":"L","Sekolah Asal":"SDN BREBES 14","Jalur":"Domisili","KELOMPOK MPLS":"C"},
+            {"No":"84","NISN":"3137008412","Nama":"Callysta Aurelia Faustine","Gender":"P","Sekolah Asal":"SDN BREBES 03","Jalur":"Domisili","KELOMPOK MPLS":"C"},
+            {"No":"85","NISN":"137409868","Nama":"Diandra Larasaputri","Gender":"P","Sekolah Asal":"SDN Brebes 02","Jalur":"KKO","KELOMPOK MPLS":"C"},
+            {"No":"86","NISN":"3113878833","Nama":"Divia Linggar Ananda","Gender":"P","Sekolah Asal":"SDN BREBES 03","Jalur":"Domisili","KELOMPOK MPLS":"C"},
+            {"No":"87","NISN":"123059765","Nama":"Elita Rizquina Tiswanto","Gender":"P","Sekolah Asal":"SDN Brebes 03","Jalur":"KKO","KELOMPOK MPLS":"C"},
+            {"No":"88","NISN":"132727775","Nama":"Fiandra Fadhilah Faeyza","Gender":"L","Sekolah Asal":"SDN BREBES 01","Jalur":"Domisili","KELOMPOK MPLS":"C"},
+            {"No":"89","NISN":"3132180217","Nama":"Hana Aida Sahila","Gender":"P","Sekolah Asal":"SDN RAND. KULON","Jalur":"Prestasi","KELOMPOK MPLS":"C"},
+            {"No":"90","NISN":"121239092","Nama":"Iqrima Nur Azizah","Gender":"P","Sekolah Asal":"SDN PESANTUNAN 03","Jalur":"Afirmasi","KELOMPOK MPLS":"C"},
+            {"No":"91","NISN":"139930683","Nama":"Keira Anindya Almirrazi","Gender":"P","Sekolah Asal":"SDIT NURUL HIDAYAH","Jalur":"Domisili","KELOMPOK MPLS":"C"},
+            {"No":"92","NISN":"125349893","Nama":"Khanza Aqila Az- Zahra","Gender":"P","Sekolah Asal":"SDN TERLANGU 01","Jalur":"Prestasi","KELOMPOK MPLS":"C"},
+            {"No":"93","NISN":"135745223","Nama":"Laila Nur Arifah","Gender":"P","Sekolah Asal":"SDN WANGANDALEM 02","Jalur":"Afirmasi","KELOMPOK MPLS":"C"},
+            {"No":"94","NISN":"139565824","Nama":"Luthfi Adhirajasa","Gender":"L","Sekolah Asal":"SDN PULOSARI 01","Jalur":"Afirmasi","KELOMPOK MPLS":"C"},
+            {"No":"95","NISN":"3131815381","Nama":"M. Fahry Ghaizan Arvano","Gender":"L","Sekolah Asal":"MIN 6 BREBES","Jalur":"Domisili","KELOMPOK MPLS":"C"},
+            {"No":"96","NISN":"127005664","Nama":"Maura Syaliana Azzahra","Gender":"P","Sekolah Asal":"SDN PEMARON 02","Jalur":"Afirmasi","KELOMPOK MPLS":"C"},
+            {"No":"97","NISN":"125355873","Nama":"Melsa Dea Safira","Gender":"P","Sekolah Asal":"SDN BREBES 14","Jalur":"Domisili","KELOMPOK MPLS":"C"},
+            {"No":"98","NISN":"3128610367","Nama":"Michelle Hasiholan Simarmata","Gender":"P","Sekolah Asal":"SDN BREBES 06","Jalur":"Domisili","KELOMPOK MPLS":"C"},
+            {"No":"99","NISN":"138360759","Nama":"Muhammad Dicky Syafani","Gender":"L","Sekolah Asal":"SDN PASARBATANG 01","Jalur":"Afirmasi","KELOMPOK MPLS":"C"},
+            {"No":"100","NISN":"125845918","Nama":"Muhammad Iqbal Mahbuby","Gender":"L","Sekolah Asal":"SDN LIMB. KULON 01","Jalur":"Domisili","KELOMPOK MPLS":"C"}
+{ no: 101, nama: "Nabil Pradipta Aditya Putra", gender: "L", sekolahAsal: "SDN Brebes 02", jalur: "KKO", kelompokMPLS: "C" }
+{ no: 102, nama: "Nabila Sauda Sari", gender: "P", sekolahAsal: "SDN PADASUGIH 03", jalur: "Domisili", kelompokMPLS: "C" }
+{ no: 103, nama: "Naura Dike Prakadinata", gender: "P", sekolahAsal: "SDN BREBES 03", jalur: "Domisili", kelompokMPLS: "C" }
+{ no: 104, nama: "Princesse Al Zena Syaqeela Irawan", gender: "P", sekolahAsal: "SDIT AHMAD YANI", jalur: "Domisili", kelompokMPLS: "C" }
+{ no: 105, nama: "Putri Aida Salsabila", gender: "P", sekolahAsal: "MIS ASY SYAFI’IYYAH 01", jalur: "Prestasi", kelompokMPLS: "C" }
+{ no: 106, nama: "Raditya Anung Prabowo", gender: "L", sekolahAsal: "SDN BREBES 09", jalur: "Domisili", kelompokMPLS: "C" }
+{ no: 107, nama: "Raid Miss'al Faraj", gender: "L", sekolahAsal: "SDN TERLANGU 01", jalur: "Afirmasi", kelompokMPLS: "C" }
+{ no: 108, nama: "Revano Prawira Akbar", gender: "L", sekolahAsal: "SDN BENDA 01", jalur: "Prestasi", kelompokMPLS: "C" }
+{ no: 109, nama: "Rezqi Alby Hermawan", gender: "L", sekolahAsal: "MIS MUH. SAWOJAJAR", jalur: "Mutasi", kelompokMPLS: "C" }
+{ no: 110, nama: "Sulthon Excel Al Wahda", gender: "L", sekolahAsal: "SDIT HARAPAN UMAT", jalur: "Prestasi", kelompokMPLS: "C" }
+{ no: 111, nama: "Thania Dwi Malicka", gender: "P", sekolahAsal: "SDN TERLANGU 01", jalur: "Prestasi", kelompokMPLS: "C" }
+{ no: 112, nama: "Tiara Khanza Amellya", gender: "P", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "C" }
+{ no: 113, nama: "Zahra Keianna Zein", gender: "P", sekolahAsal: "SDN GANDASULI 02", jalur: "Domisili", kelompokMPLS: "C" }
+{ no: 114, nama: "Zakaria Arjuna Syafiq", gender: "L", sekolahAsal: "MIS MANSYAUL ULUM 01", jalur: "Domisili", kelompokMPLS: "C" }
+{ no: 115, nama: "Adriana Davina Pranajaya", gender: "P", sekolahAsal: "SDN Brebes 02", jalur: "KKO", kelompokMPLS: "D" }
+{ no: 116, nama: "Alif Putra Nurfi", gender: "L", sekolahAsal: "SDN SIASEM 01", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 117, nama: "Alika Qorry Putri", gender: "P", sekolahAsal: "SDN BREBES 01", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 118, nama: "Anang Bagaskara", gender: "L", sekolahAsal: "SDIT NURUL HIDAYAH", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 119, nama: "Aqilla Azzahra Aryanti", gender: "P", sekolahAsal: "SDN GANDASULI 02", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 120, nama: "Chayara Elfa Mukhbita", gender: "P", sekolahAsal: "SDN BREBES 10", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 121, nama: "Chelsea Widhan Putri Islami", gender: "P", sekolahAsal: "SDN PEBATAN 02", jalur: "Afirmasi", kelompokMPLS: "D" }
+{ no: 122, nama: "Damar Andaru Nur Majid", gender: "L", sekolahAsal: "SDN BREBES 01", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 123, nama: "Devina Nazhifa Azzahra", gender: "P", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 124, nama: "Ervan Shidiq", gender: "L", sekolahAsal: "SDN DEPOK 4", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 125, nama: "Fatmawati Nur Annisa", gender: "P", sekolahAsal: "SDN PADASUGIH 03", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 126, nama: "Ghawa Aufar Zizwandwipa", gender: "L", sekolahAsal: "SDN Brebes 01", jalur: "KKO", kelompokMPLS: "D" }
+{ no: 127, nama: "Hafiz Munzhir", gender: "L", sekolahAsal: "SDN LIM. WETAN 02", jalur: "Afirmasi", kelompokMPLS: "D" }
+{ no: 128, nama: "Jenius Citra Mahela", gender: "P", sekolahAsal: "SDN BREBES 08", jalur: "Afirmasi", kelompokMPLS: "D" }
+{ no: 129, nama: "Kanaya Adis Aishara", gender: "P", sekolahAsal: "SDN PASARBATANG 07", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 130, nama: "Keylla Aquilla Anasthasya", gender: "P", sekolahAsal: "SDN WANGANDALEM 03", jalur: "Afirmasi", kelompokMPLS: "D" }
+{ no: 131, nama: "Masfufatun Nada Bananiah", gender: "P", sekolahAsal: "MIS Nihayatul Amal", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 132, nama: "Mohammad Tristan Obadiah", gender: "L", sekolahAsal: "SD Islam Al Azhar 53", jalur: "KKO", kelompokMPLS: "D" }
+{ no: 133, nama: "Muhamad Zacky Ulul Azmi", gender: "L", sekolahAsal: "UPTD SDN 3 DUKUHJATI", jalur: "Prestasi", kelompokMPLS: "D" }
+{ no: 134, nama: "Muhammad Alvaruq Bratadikara", gender: "L", sekolahAsal: "SDN BREBES 03", jalur: "Prestasi", kelompokMPLS: "D" }
+{ no: 135, nama: "Muhammad Azzam Ramadhan", gender: "L", sekolahAsal: "SDN BREBES 14", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 136, nama: "Muhammad Farrell Zidni", gender: "L", sekolahAsal: "SDN BANJARANYAR 01", jalur: "Afirmasi", kelompokMPLS: "D" }
+{ no: 137, nama: "Muhammad Reza Hardiansyah", gender: "L", sekolahAsal: "SDN PASARBATANG 03", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 138, nama: "Nafisha Aurellia Viantina", gender: "P", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 139, nama: "Niken Sara Anggraini Subagio", gender: "P", sekolahAsal: "SDN PAKIJANGAN 04", jalur: "Prestasi", kelompokMPLS: "D" }
+{ no: 140, nama: "Prischilya Isabell Vannya", gender: "P", sekolahAsal: "SDN BREBES 03", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 141, nama: "Raden Rara Fiya Naylussa'Adah", gender: "P", sekolahAsal: "MIS AL FALAH", jalur: "Prestasi", kelompokMPLS: "D" }
+{ no: 142, nama: "Rakha Raqilla Shidqi", gender: "L", sekolahAsal: "SDN BREBES 14", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 143, nama: "Safitri Istianti", gender: "P", sekolahAsal: "SDN KALIG. KULON 01", jalur: "Prestasi", kelompokMPLS: "D" }
+{ no: 144, nama: "Saint Wafi Ammar", gender: "L", sekolahAsal: "SDN Brebes 02", jalur: "Mutasi", kelompokMPLS: "D" }
+{ no: 145, nama: "Satria Azkasyam", gender: "L", sekolahAsal: "MIS AL MUJAHIDIN", jalur: "Prestasi", kelompokMPLS: "D" }
+{ no: 146, nama: "Selasih Larasati", gender: "P", sekolahAsal: "SDN SIASEM 01", jalur: "Prestasi", kelompokMPLS: "D" }
+{ no: 147, nama: "Shakira Adzkia Ayuri", gender: "P", sekolahAsal: "SDIT Harapan Umat", jalur: "KKO", kelompokMPLS: "D" }
+{ no: 148, nama: "Syaffana Putria Adilita", gender: "P", sekolahAsal: "SDN TERLANGU 01", jalur: "Prestasi", kelompokMPLS: "D" }
+{ no: 149, nama: "Syakira Sahla Saida", gender: "P", sekolahAsal: "MIS MUHAM.", jalur: "Prestasi", kelompokMPLS: "D" }
+{ no: 150, nama: "Vicka Ayudia Inara", gender: "P", sekolahAsal: "SDN PEMARON 02", jalur: "Afirmasi", kelompokMPLS: "D" }
+{ no: 151, nama: "Yahya Andika Maulana", gender: "L", sekolahAsal: "SDN TERLANGU 01", jalur: "Afirmasi", kelompokMPLS: "D" }
+{ no: 152, nama: "Zaskia Septiani Susanto", gender: "P", sekolahAsal: "SDN PASARBATANG 01", jalur: "Domisili", kelompokMPLS: "D" }
+{ no: 153, nama: "Ahmad Baiquni Ilyas", gender: "L", sekolahAsal: "SDN Padasugih 01", jalur: "Mutasi", kelompokMPLS: "E" }
+{ no: 154, nama: "Aina Yusfi Maulidya Ghozali", gender: "P", sekolahAsal: "SD IT USAMAH", jalur: "Prestasi", kelompokMPLS: "E" }
+{ no: 155, nama: "Arkananta Nafis Ibrahim", gender: "L", sekolahAsal: "SDN Brebes 01", jalur: "KKO", kelompokMPLS: "E" }
+{ no: 156, nama: "Asyam Haidar Nur Soleh", gender: "L", sekolahAsal: "SDN Brebes 06", jalur: "KKO", kelompokMPLS: "E" }
+{ no: 157, nama: "Azahra Nabila Alya Putri", gender: "P", sekolahAsal: "SDN BANJARANYAR 01", jalur: "Afirmasi", kelompokMPLS: "E" }
+{ no: 158, nama: "Azzah Zahrani Putri", gender: "P", sekolahAsal: "SDN KALIG.WETAN 04", jalur: "Afirmasi", kelompokMPLS: "E" }
+{ no: 159, nama: "Azzelia Prameswari", gender: "P", sekolahAsal: "SDIT NURUL HIDAYAH", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 160, nama: "Bianca Adenna Tiffany", gender: "P", sekolahAsal: "SDN BREBES 01", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 161, nama: "Chantiqa Alouna Putry Moureen", gender: "P", sekolahAsal: "SDN BREBES 03", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 162, nama: "Dinaar Ghina Fadlilah", gender: "P", sekolahAsal: "SDN RANDUSANGA KULON", jalur: "Afirmasi", kelompokMPLS: "E" }
+{ no: 163, nama: "Gerald Akhmad Prilestyo Syafrudin", gender: "L", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 164, nama: "Hafiz Ade Wibisono", gender: "L", sekolahAsal: "SDN KEDUNGT. 01", jalur: "Prestasi", kelompokMPLS: "E" }
+{ no: 165, nama: "Hanifa Zukhruffinnisa", gender: "P", sekolahAsal: "SDN WANASARI 03", jalur: "Prestasi", kelompokMPLS: "E" }
+{ no: 166, nama: "Jiran Nurlisa Mezzaluna", gender: "P", sekolahAsal: "SDN PAKIJANGAN 01", jalur: "Prestasi", kelompokMPLS: "E" }
+{ no: 167, nama: "Kenzie Javaz Azizan", gender: "L", sekolahAsal: "SDN BREBES 03", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 168, nama: "Khalisya Putri Shakira", gender: "P", sekolahAsal: "SDN BREBES 09", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 169, nama: "M. A'rsya Al Fathir Zulfiqar Al H.", gender: "L", sekolahAsal: "SDN BREBES 01", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 170, nama: "Maulana Yusup Mubasyir", gender: "L", sekolahAsal: "SDN BANJARANYAR 04", jalur: "Afirmasi", kelompokMPLS: "E" }
+{ no: 171, nama: "Moh.Sulton Nur Ikhsan Hidayat", gender: "L", sekolahAsal: "SDN BREBES 14", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 172, nama: "Mohamad Hilal Ramdhani", gender: "L", sekolahAsal: "MIN 6 BREBES", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 173, nama: "Muflih Afkar Argianto", gender: "L", sekolahAsal: "SDN PEMARON 03", jalur: "Prestasi", kelompokMPLS: "E" }
+{ no: 174, nama: "Muhammad Evan Alvin", gender: "L", sekolahAsal: "SDIT HARAPAN UMAT", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 175, nama: "Muhammad Farkhan", gender: "L", sekolahAsal: "SDN GANDASULI 02", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 176, nama: "Muhammad Syauqi Ni'amy", gender: "L", sekolahAsal: "MIN 2 BREBES", jalur: "Prestasi", kelompokMPLS: "E" }
+{ no: 177, nama: "Muhammad Zhafran Rafiandra", gender: "L", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 178, nama: "Muzakki Taufiqillah Imami", gender: "L", sekolahAsal: "SDN BREBES 01", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 179, nama: "Naira Nafisha Az Zahra", gender: "P", sekolahAsal: "MIN 6 Brebes", jalur: "KKO", kelompokMPLS: "E" }
+{ no: 180, nama: "Nasyifa Aqila Khanssa", gender: "P", sekolahAsal: "SDN TERLANGU 01", jalur: "Prestasi", kelompokMPLS: "E" }
+{ no: 181, nama: "Princesse Jasmine Audrey I.", gender: "P", sekolahAsal: "MTSS AL WATHONIYAH 1", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 182, nama: "Reivalina Vallen Azahra", gender: "P", sekolahAsal: "SDN TERLANGU 02", jalur: "Afirmasi", kelompokMPLS: "E" }
+{ no: 183, nama: "Salsabila Zahra Karina Putri", gender: "P", sekolahAsal: "MIN 6 BREBES", jalur: "Prestasi", kelompokMPLS: "E" }
+{ no: 184, nama: "Sandya Winu Mahardika", gender: "L", sekolahAsal: "SDN TERLANGU 01", jalur: "Afirmasi", kelompokMPLS: "E" }
+{ no: 185, nama: "Sayyid Fadli Syahbana", gender: "L", sekolahAsal: "MIN 6 BREBES", jalur: "Afirmasi", kelompokMPLS: "E" }
+{ no: 186, nama: "Tabitha Sheena Sharonlie", gender: "P", sekolahAsal: "SDN Brebes 06", jalur: "KKO", kelompokMPLS: "E" }
+{ no: 187, nama: "Tiara Zahsy Sabilla", gender: "P", sekolahAsal: "SDN SIASEM 01", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 188, nama: "Vania Rizqi Callista", gender: "P", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 189, nama: "Vika Bunga Yolanda Sari", gender: "P", sekolahAsal: "SDN SAWOJAJAR 01", jalur: "Prestasi", kelompokMPLS: "E" }
+{ no: 190, nama: "Yumna Faiza Nadira", gender: "P", sekolahAsal: "SDN BREBES 10", jalur: "Domisili", kelompokMPLS: "E" }
+{ no: 191, nama: "Abimanyu Pramudya Setiawan", gender: "L", sekolahAsal: "SDN BREBES 03", jalur: "Prestasi", kelompokMPLS: "F" }
+{ no: 192, nama: "Ahmad Ardian Alfatah", gender: "L", sekolahAsal: "SDN BREBES 01", jalur: "Afirmasi", kelompokMPLS: "F" }
+{ no: 193, nama: "Aisyah Aqilah Safitri", gender: "P", sekolahAsal: "SDN PEMARON 02", jalur: "Prestasi", kelompokMPLS: "F" }
+{ no: 194, nama: "Alya Ramadhani Fauzi", gender: "P", sekolahAsal: "SDIT NURUL HIDAYAH", jalur: "Prestasi", kelompokMPLS: "F" }
+{ no: 195, nama: "Amira Humaira", gender: "P", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 196, nama: "Ammar Maula Rizki", gender: "L", sekolahAsal: "SDN Sigempol 03", jalur: "Mutasi", kelompokMPLS: "F" }
+{ no: 197, nama: "Citra Anindya Putri", gender: "P", sekolahAsal: "SDN BREBES 03", jalur: "Prestasi", kelompokMPLS: "F" }
+{ no: 198, nama: "Daffa Rizqy Putra Aji Pratama", gender: "L", sekolahAsal: "MIN 6 BREBES", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 199, nama: "Danendra Arsya Prawira", gender: "L", sekolahAsal: "SDN WANGANDALEM 03", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 200, nama: "Darius Aufa Faiz", gender: "L", sekolahAsal: "MIN 6 BREBES", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 201, nama: "Devan Prasetyo", gender: "L", sekolahAsal: "SDN BREBES 09", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 202, nama: "Dwi Aira Rizkannia Damayanti", gender: "P", sekolahAsal: "SDN BULUSARI 01", jalur: "Prestasi", kelompokMPLS: "F" }
+{ no: 203, nama: "Faeyza Akbar", gender: "L", sekolahAsal: "SDN BREBES 01", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 204, nama: "Fairel Athariz Setiawan", gender: "L", sekolahAsal: "SDN BREBES 14", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 205, nama: "Farida Qotrun Nada", gender: "P", sekolahAsal: "MIS MANSYAUL ULUM 02", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 206, nama: "Ferdika Alif Maulana", gender: "L", sekolahAsal: "SDN PULOSARI 02", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 207, nama: "Izza Nurrohmah", gender: "P", sekolahAsal: "SDN BREBES 10", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 208, nama: "Kareen Rantia", gender: "P", sekolahAsal: "SDN Brebes 06", jalur: "KKO", kelompokMPLS: "F" }
+{ no: 209, nama: "Khaisha Gendhis Safitri", gender: "P", sekolahAsal: "SDN BREBES 14", jalur: "Afirmasi", kelompokMPLS: "F" }
+{ no: 210, nama: "Mifzhal Kusmantoro", gender: "L", sekolahAsal: "SDN BREBES 01", jalur: "Afirmasi", kelompokMPLS: "F" }
+{ no: 211, nama: "Muhammad Nibras Alfatah", gender: "L", sekolahAsal: "SDN TERLANGU 01", jalur: "Prestasi", kelompokMPLS: "F" }
+{ no: 212, nama: "Muhammad Reza Variztino", gender: "L", sekolahAsal: "SDN Terlangu 01", jalur: "KKO", kelompokMPLS: "F" }
+{ no: 213, nama: "Mukh. Alifiandra Al - Khalifi", gender: "L", sekolahAsal: "SDN BREBES 01", jalur: "Prestasi", kelompokMPLS: "F" }
+{ no: 214, nama: "Mutiara Ayu Ramadhani", gender: "P", sekolahAsal: "SDN BREBES 03", jalur: "Prestasi", kelompokMPLS: "F" }
+{ no: 215, nama: "Nadhiva Naila Heriandani", gender: "P", sekolahAsal: "SDN BREBES 08", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 216, nama: "Nagita Andini Silvania", gender: "P", sekolahAsal: "SDN TERLANGU 01", jalur: "Prestasi", kelompokMPLS: "F" }
+{ no: 217, nama: "Nahla Mahfuzh", gender: "P", sekolahAsal: "SDN Ketanggungan 04", jalur: "KKO", kelompokMPLS: "F" }
+{ no: 218, nama: "Naufal Fadhli Virdyawan", gender: "L", sekolahAsal: "SDIT NURUL HIDAYAH", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 219, nama: "Nazhirul Asrofi", gender: "L", sekolahAsal: "SDN BREBES 10", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 220, nama: "Nesti Dwi Anggraeni", gender: "P", sekolahAsal: "SDN PULOSARI 01", jalur: "Afirmasi", kelompokMPLS: "F" }
+{ no: 221, nama: "Noveny Kurnia Bazil", gender: "P", sekolahAsal: "MIS RAUD. THOLIBIN", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 222, nama: "Nur Cahya Puji Raharjo", gender: "L", sekolahAsal: "SDN Terlangu 02", jalur: "KKO", kelompokMPLS: "F" }
+{ no: 223, nama: "Peni Indriati", gender: "P", sekolahAsal: "SDN TERLANGU 02", jalur: "Afirmasi", kelompokMPLS: "F" }
+{ no: 224, nama: "Shafiyah Cahya Faradilla", gender: "P", sekolahAsal: "MIS NAHDLATUL UL. 01", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 225, nama: "Syabira Mutia Amalina", gender: "P", sekolahAsal: "SDN PAGEJUGAN 01", jalur: "Afirmasi", kelompokMPLS: "F" }
+{ no: 226, nama: "Syahquitta Anjumanarra Loka", gender: "P", sekolahAsal: "SDN PADASUGIH 03", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 227, nama: "Ulima Tatsbita Tsm", gender: "P", sekolahAsal: "SDN PEBATAN 01", jalur: "Domisili", kelompokMPLS: "F" }
+{ no: 228, nama: "Zahrif Rafa Fais Auliya", gender: "L", sekolahAsal: "SDN TERLANGU 01", jalur: "Afirmasi", kelompokMPLS: "F" }
+{ no: 229, nama: "Abid Aqila Khaeroni", gender: "L", sekolahAsal: "SDN SIDAMULYA 02", jalur: "Prestasi", kelompokMPLS: "G" }
+{ no: 230, nama: "Adinda Ayu Azzahra", gender: "P", sekolahAsal: "SDN BREBES 14", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 231, nama: "Afiqah Anjelita Nafasar", gender: "P", sekolahAsal: "SDN PASARBATANG 02", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 232, nama: "Aiman Ahwas Tsaqib", gender: "L", sekolahAsal: "SDN Bulakparen 01", jalur: "KKO", kelompokMPLS: "G" }
+{ no: 233, nama: "Akhmad Aqil Nur Farisi", gender: "L", sekolahAsal: "SDN PULOSARI 02", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 234, nama: "Anindita Sindu Maheswari", gender: "P", sekolahAsal: "SDN BANJARANYAR 04", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 235, nama: "As Saajid Syakhiyyul Farhan", gender: "L", sekolahAsal: "SDN GANDASULI 02", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 236, nama: "Askar Nufail Muzhaffar", gender: "L", sekolahAsal: "SDN WANASARI 01", jalur: "Prestasi", kelompokMPLS: "G" }
+{ no: 237, nama: "Bilkis Nur Kamilia", gender: "P", sekolahAsal: "SDN PULOSARI 01", jalur: "Afirmasi", kelompokMPLS: "G" }
+{ no: 238, nama: "Chika Kirana Febriani", gender: "P", sekolahAsal: "MIN 6 BREBES", jalur: "Prestasi", kelompokMPLS: "G" }
+{ no: 239, nama: "Fathir Ahza Azzamy", gender: "L", sekolahAsal: "SDIT PERSATUAN ISL. 01", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 240, nama: "Fina Dwi Syakila", gender: "P", sekolahAsal: "SDN PAGEJUGAN 02", jalur: "Afirmasi", kelompokMPLS: "G" }
+{ no: 241, nama: "Garnetha Ayu Zhahira", gender: "P", sekolahAsal: "SDN BREBES 10", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 242, nama: "Hesqel Novhan Abeliano Samosir", gender: "L", sekolahAsal: "SDN Brebes 03", jalur: "KKO", kelompokMPLS: "G" }
+{ no: 243, nama: "Ibas Malik Heri Alghifari", gender: "L", sekolahAsal: "SDN BREBES 01", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 244, nama: "Ikhsan Hanfan", gender: "L", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 245, nama: "Intan Dwi Purpitta Sari", gender: "P", sekolahAsal: "MIS MIFTAHUL FALAH", jalur: "Prestasi", kelompokMPLS: "G" }
+{ no: 246, nama: "Iqbal Fadil Senoaji", gender: "L", sekolahAsal: "SDN BREBES 14", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 247, nama: "Irena Nur Meinida", gender: "P", sekolahAsal: "SDN GANDASULI 02", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 248, nama: "Khaila Gendhis Safitri", gender: "P", sekolahAsal: "SDN BREBES 14", jalur: "Afirmasi", kelompokMPLS: "G" }
+{ no: 249, nama: "Khaira Hasna Aqila Tiando", gender: "P", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 250, nama: "M Fatihul Himam", gender: "L", sekolahAsal: "SDN Balamoa 02", jalur: "Mutasi", kelompokMPLS: "G" }
+{ no: 251, nama: "Maysuri Divia Anggana Raras", gender: "P", sekolahAsal: "MIN 6 BREBES", jalur: "Prestasi", kelompokMPLS: "G" }
+{ no: 252, nama: "Moh. Bhazli Pratama", gender: "L", sekolahAsal: "SDN PASARBATANG 07", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 253, nama: "Moh. Jefri Azmi Pratama", gender: "L", sekolahAsal: "SDN WANGANDALEM 02", jalur: "Afirmasi", kelompokMPLS: "G" }
+{ no: 254, nama: "Muhammad Alfian Pratama", gender: "L", sekolahAsal: "SDIT AHMAD YANI", jalur: "Afirmasi", kelompokMPLS: "G" }
+{ no: 255, nama: "Nabila Azzahra", gender: "P", sekolahAsal: "SDN PULOSARI 03", jalur: "Afirmasi", kelompokMPLS: "G" }
+{ no: 256, nama: "Nahwa Sefiyah", gender: "P", sekolahAsal: "SDN BREBES 07", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 257, nama: "Naila Fara", gender: "P", sekolahAsal: "SDIT NURUL HIDAYAH", jalur: "Prestasi", kelompokMPLS: "G" }
+{ no: 258, nama: "Narendra Delan Prayitno", gender: "L", sekolahAsal: "SDN BREBES 10", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 259, nama: "Nazriel Alamsyah", gender: "L", sekolahAsal: "SDN TERLANGU 01", jalur: "Afirmasi", kelompokMPLS: "G" }
+{ no: 260, nama: "Nizam Ahza Mulyafan", gender: "L", sekolahAsal: "SDN BREBES 03", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 261, nama: "Nur Aribah Syakirah", gender: "P", sekolahAsal: "SDN Brebes 06", jalur: "KKO", kelompokMPLS: "G" }
+{ no: 262, nama: "Rangga Faeyza Zulhilmi", gender: "L", sekolahAsal: "SDN KENDAWA 01", jalur: "Prestasi", kelompokMPLS: "G" }
+{ no: 263, nama: "Raras Khaansa Anaya", gender: "P", sekolahAsal: "SD ISLAM AL AZHAR 53", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 264, nama: "Revana Nindyasari", gender: "P", sekolahAsal: "SDN SIASEM 01", jalur: "Prestasi", kelompokMPLS: "G" }
+{ no: 265, nama: "Selena Stafania", gender: "P", sekolahAsal: "SDN SIASEM 01", jalur: "Domisili", kelompokMPLS: "G" }
+{ no: 266, nama: "Zahrah Zuyyin", gender: "P", sekolahAsal: "SDN Kaligangsa Wetan 03", jalur: "Mutasi", kelompokMPLS: "G" }
+{ no: 267, nama: "Abdul Azis", gender: "L", sekolahAsal: "SDN KRASAK 02", jalur: "Afirmasi", kelompokMPLS: "H" }
+{ no: 268, nama: "Adha Zahra Jauza", gender: "P", sekolahAsal: "MIN 6 BREBES", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 269, nama: "Afsar Ukail Wibiyev", gender: "L", sekolahAsal: "SDIT NURUL HIDAYAH", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 270, nama: "Ahmad Wildan Santoso", gender: "L", sekolahAsal: "MIS AL FALAH", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 271, nama: "Alesha Azkayla Nadhefa", gender: "P", sekolahAsal: "SDN TERLANGU 02", jalur: "Afirmasi", kelompokMPLS: "H" }
+{ no: 272, nama: "Andre Putra Priyanto", gender: "L", sekolahAsal: "SDN BREBES 10", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 273, nama: "Aprillia Khoinun Junaningsih", gender: "P", sekolahAsal: "MIS SALAFIYAH LIMB.", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 274, nama: "Aqila Nafisa Zahra", gender: "P", sekolahAsal: "SDN BREBES 03", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 275, nama: "Arwa Fadillah", gender: "P", sekolahAsal: "SDN PASARBATANG 02", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 276, nama: "Assyilla Nurul Syavira", gender: "P", sekolahAsal: "SDN SIASEM 03", jalur: "Prestasi", kelompokMPLS: "H" }
+{ no: 277, nama: "Brevi Alinda Fattih", gender: "L", sekolahAsal: "SDN TERLANGU 03", jalur: "Afirmasi", kelompokMPLS: "H" }
+{ no: 278, nama: "Danesh Batrisya", gender: "P", sekolahAsal: "SDN Krasak 02", jalur: "Mutasi", kelompokMPLS: "H" }
+{ no: 279, nama: "Dian Putri Wijaya", gender: "P", sekolahAsal: "SDN TENGKI 04", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 280, nama: "Egi Dwi Saputra", gender: "L", sekolahAsal: "SDN BREBES 10", jalur: "Afirmasi", kelompokMPLS: "H" }
+{ no: 281, nama: "Eurecka Khalifah Al Ardh", gender: "L", sekolahAsal: "SDN BREBES 14", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 282, nama: "Fatin Kayla Syakira", gender: "P", sekolahAsal: "SDN PASARBATANG 01", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 283, nama: "Febrina Ulfi Thobi'anti", gender: "P", sekolahAsal: "SDN PASARBATANG 03", jalur: "Afirmasi", kelompokMPLS: "H" }
+{ no: 284, nama: "Firqotunn Najiya", gender: "P", sekolahAsal: "MIN 6 BREBES", jalur: "Afirmasi", kelompokMPLS: "H" }
+{ no: 285, nama: "Galang Fastabiqul Khoerot", gender: "L", sekolahAsal: "SDN Pegadungan 13 Pagi", jalur: "Mutasi", kelompokMPLS: "H" }
+{ no: 286, nama: "Haqqi Fazle Meliyadi", gender: "L", sekolahAsal: "SDN KEBOGADUNG 01", jalur: "Prestasi", kelompokMPLS: "H" }
+{ no: 287, nama: "Haziq Alfiyan Majid", gender: "L", sekolahAsal: "SDN PEMARON 02", jalur: "Prestasi", kelompokMPLS: "H" }
+{ no: 288, nama: "Izza Syafira Az Zahra", gender: "P", sekolahAsal: "SDN Siwuluh 01", jalur: "KKO", kelompokMPLS: "H" }
+{ no: 289, nama: "Keysha Ghina Tsabita", gender: "P", sekolahAsal: "SDIT HARAPAN UMAT", jalur: "Prestasi", kelompokMPLS: "H" }
+{ no: 290, nama: "Mohammad Dzaki Febrianto", gender: "L", sekolahAsal: "MIN 6 BREBES", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 291, nama: "Muchammad Dzaky Fallah", gender: "L", sekolahAsal: "SDN Padasugih 03", jalur: "KKO", kelompokMPLS: "H" }
+{ no: 292, nama: "Muhammad Oktafian Maulana", gender: "L", sekolahAsal: "SDN PULOSARI 02", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 293, nama: "Muhammad Zaini Mubarok", gender: "L", sekolahAsal: "SDTQ AL IKHLAS", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 294, nama: "Nadya Zalika Nuha A.", gender: "P", sekolahAsal: "SDN BREBES 01", jalur: "Afirmasi", kelompokMPLS: "H" }
+{ no: 295, nama: "Naufal Shidqi Mahardika", gender: "L", sekolahAsal: "SDN BREBES 03", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 296, nama: "Putri Risma Almira", gender: "P", sekolahAsal: "MIN 2 BREBES", jalur: "Prestasi", kelompokMPLS: "H" }
+{ no: 297, nama: "Raditya Adhi Nurrahman", gender: "L", sekolahAsal: "SDN BREBES 03", jalur: "Prestasi", kelompokMPLS: "H" }
+{ no: 298, nama: "Rafles Sihaloho", gender: "L", sekolahAsal: "SDN Brebes 03", jalur: "KKO", kelompokMPLS: "H" }
+{ no: 299, nama: "Raisya Aimmatul Khasanah", gender: "P", sekolahAsal: "SDN TERLANGU 01", jalur: "Prestasi", kelompokMPLS: "H" }
+{ no: 300, nama: "Safira Azalea Putri", gender: "P", sekolahAsal: "SDN GANDASULI 02", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 301, nama: "Safira Zhuyin Sahara", gender: "P", sekolahAsal: "SDN RANDUSANGA K.", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 302, nama: "Tabina Aryani", gender: "P", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 303, nama: "Willi Al Fauzi", gender: "L", sekolahAsal: "SDN PADASUGIH 02", jalur: "Domisili", kelompokMPLS: "H" }
+{ no: 304, nama: "Zahrana Aurella Subekhi", gender: "P", sekolahAsal: "SDIT NURUL HIDAYAH", jalur: "Prestasi", kelompokMPLS: "H" }
+{ no: 305, nama: "Adhwa Fajri Annada", gender: "P", sekolahAsal: "SDN PULOSARI 03", jalur: "Afirmasi", kelompokMPLS: "I" }
+{ no: 306, nama: "Afiqah Kirana Maulida", gender: "P", sekolahAsal: "SDIT NURUL HIDAYAH", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 307, nama: "Airlangga Ghifari Nugroho", gender: "L", sekolahAsal: "SDN BREBES 03", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 308, nama: "Alka Dwi Syaputra", gender: "L", sekolahAsal: "SDN SIGEMPOL 03", jalur: "Prestasi", kelompokMPLS: "I" }
+{ no: 309, nama: "Angel Larasati", gender: "P", sekolahAsal: "SDN PEMARON 01", jalur: "Afirmasi", kelompokMPLS: "I" }
+{ no: 310, nama: "Anindita Cakra Dara", gender: "P", sekolahAsal: "SDN MANGKUKUSUMAN 8", jalur: "Prestasi", kelompokMPLS: "I" }
+{ no: 311, nama: "Azkiya Atqo Atqiya", gender: "P", sekolahAsal: "MIS MIFTAHUL FALAH", jalur: "Prestasi", kelompokMPLS: "I" }
+{ no: 312, nama: "Chika Amanda", gender: "P", sekolahAsal: "SDN BREBES 03", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 313, nama: "Clarissa Putri Atmania", gender: "P", sekolahAsal: "SDN Brebes 01", jalur: "Mutasi", kelompokMPLS: "I" }
+{ no: 314, nama: "Daffa Yaqdhan Zahy", gender: "L", sekolahAsal: "MIS RAUD. THOLIBIN", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 315, nama: "Deeva Mahardhika Putra", gender: "L", sekolahAsal: "MIN 6 Brebes", jalur: "KKO", kelompokMPLS: "I" }
+{ no: 316, nama: "Dimaz Aji Laksana", gender: "L", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 317, nama: "Dita Aulia Cahyadi", gender: "P", sekolahAsal: "SDN PASARBATANG 03", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 318, nama: "George Rafindra Alfara", gender: "L", sekolahAsal: "SDN PULOSARI 03", jalur: "Afirmasi", kelompokMPLS: "I" }
+{ no: 319, nama: "Hafna Ilmy Muhaya", gender: "P", sekolahAsal: "SDN PAREREJA 02", jalur: "Prestasi", kelompokMPLS: "I" }
+{ no: 320, nama: "Izzam Ahmad Muzammil", gender: "L", sekolahAsal: "MIS BAROKATUL QURAN", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 321, nama: "Kahla Yafi Musyyafa", gender: "P", sekolahAsal: "SDN Brebes 08", jalur: "Mutasi", kelompokMPLS: "I" }
+{ no: 322, nama: "Karunia Saputra", gender: "L", sekolahAsal: "SDN GANDASULI 02", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 323, nama: "Larissa Khumairoh", gender: "P", sekolahAsal: "SDN GANDASULI 02", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 324, nama: "Lilian Zahirah", gender: "P", sekolahAsal: "MIS SALAF.LIMBANGAN", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 325, nama: "M Zein Mubarak", gender: "L", sekolahAsal: "SDN BREBES 06", jalur: "Afirmasi", kelompokMPLS: "I" }
+{ no: 326, nama: "Melisa Putri Maharani N.", gender: "P", sekolahAsal: "SDN BREBES 02", jalur: "Prestasi", kelompokMPLS: "I" }
+{ no: 327, nama: "Muhammad Aniq Syauqi", gender: "L", sekolahAsal: "MIS RAUD. THOLIBIN", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 328, nama: "Muhammad Firdian Maulana", gender: "L", sekolahAsal: "SDN TERLANGU 01", jalur: "Prestasi", kelompokMPLS: "I" }
+{ no: 329, nama: "Muhammad Zydane Al Khalify", gender: "L", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 330, nama: "Nabil Muntadzar Rabbani", gender: "L", sekolahAsal: "SDN BREBES 01", jalur: "Prestasi", kelompokMPLS: "I" }
+{ no: 331, nama: "Narendra Sotya Prayogi", gender: "L", sekolahAsal: "SDN PEMARON 02", jalur: "Prestasi", kelompokMPLS: "I" }
+{ no: 332, nama: "Naura Khansa Azzahra", gender: "P", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 333, nama: "Nur Aisyah Rihadhatul Aisy", gender: "P", sekolahAsal: "SDN BREBES 07", jalur: "Afirmasi", kelompokMPLS: "I" }
+{ no: 334, nama: "Putra Dwi Nur Randryka", gender: "L", sekolahAsal: "SDN BREBES 01", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 335, nama: "Quthbie Zayan Dzakir Khafadi", gender: "L", sekolahAsal: "SDIT AHMAD YANI", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 336, nama: "Reikhsa As Sauqi Abdullah", gender: "L", sekolahAsal: "MIN 6 Brebes", jalur: "KKO", kelompokMPLS: "I" }
+{ no: 337, nama: "Revalina Azzahra", gender: "P", sekolahAsal: "SDN SIASEM 01", jalur: "Prestasi", kelompokMPLS: "I" }
+{ no: 338, nama: "Satria Ardiansyah P. P.", gender: "L", sekolahAsal: "SDN BREBES 03", jalur: "Afirmasi", kelompokMPLS: "I" }
+{ no: 339, nama: "Septiana Hafizah", gender: "P", sekolahAsal: "SDN GANDASULI 02", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 340, nama: "Septiani Dwi Purwanti", gender: "P", sekolahAsal: "SDN BREBES 01", jalur: "Afirmasi", kelompokMPLS: "I" }
+{ no: 341, nama: "Shakila Imanda Maheswari", gender: "P", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 342, nama: "Syifa Amalia Putri", gender: "P", sekolahAsal: "SDN BREBES 07", jalur: "Domisili", kelompokMPLS: "I" }
+{ no: 343, nama: "Adrian Azfar Wibowo", gender: "L", sekolahAsal: "SDN BREBES 03", jalur: "Prestasi", kelompokMPLS: "J" }
+{ no: 344, nama: "Aelisya Regina Putri", gender: "P", sekolahAsal: "SDN PEJATEN T. 07 PAGI", jalur: "Prestasi", kelompokMPLS: "J" }
+{ no: 345, nama: "Afrenandez Habil Azahri", gender: "L", sekolahAsal: "SDN TERLANGU 01", jalur: "Prestasi", kelompokMPLS: "J" }
+{ no: 346, nama: "Ailsa Aulia Anindya Sadina", gender: "P", sekolahAsal: "SDN BENGLE II", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 347, nama: "Aisyah Al Madinah", gender: "P", sekolahAsal: "MIS BAROKATUL QURAN", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 348, nama: "Alvaro Hanan Al Farizy", gender: "L", sekolahAsal: "SDN WANGANDALEM 02", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 349, nama: "Anandita Dwi Zafina", gender: "P", sekolahAsal: "SDN PULOSARI 02", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 350, nama: "Arya Oktavian Fatdez", gender: "L", sekolahAsal: "MIS MIFTAHUL FALAH", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 351, nama: "Aulia Dwi Pratama", gender: "P", sekolahAsal: "SDN BANGSRI 03", jalur: "Prestasi", kelompokMPLS: "J" }
+{ no: 352, nama: "Azkia Savina Alfiani", gender: "P", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 353, nama: "Brata Langit Hardiantoro", gender: "L", sekolahAsal: "SDN BREBES 01", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 354, nama: "Daviq Fajri Setiawan", gender: "L", sekolahAsal: "SDN Wanasari 01", jalur: "KKO", kelompokMPLS: "J" }
+{ no: 355, nama: "Denis Caesarullah", gender: "L", sekolahAsal: "SDN PROCOT 04", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 356, nama: "Dhia Al Zahirah", gender: "P", sekolahAsal: "SDTQ DARUL ABROR", jalur: "Afirmasi", kelompokMPLS: "J" }
+{ no: 357, nama: "Dimas Maha Rizki Febrian", gender: "L", sekolahAsal: "SDN BREBES 14", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 358, nama: "Dyandra Athaya Raffa Ibrahim", gender: "L", sekolahAsal: "SDIT HARAPAN UMAT", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 359, nama: "Dzakirah Nur Oktavia", gender: "P", sekolahAsal: "SDN PADASUGIH 01", jalur: "Prestasi", kelompokMPLS: "J" }
+{ no: 360, nama: "Emka Maulana Hafidz", gender: "L", sekolahAsal: "SDN RAND. KULON", jalur: "Prestasi", kelompokMPLS: "J" }
+{ no: 361, nama: "Farah Khamidah", gender: "P", sekolahAsal: "SDN SIASEM 01", jalur: "Afirmasi", kelompokMPLS: "J" }
+{ no: 362, nama: "Farah Najwa Denica", gender: "P", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 363, nama: "Hazwan Hanif", gender: "L", sekolahAsal: "SDN BREBES 09", jalur: "Prestasi", kelompokMPLS: "J" }
+{ no: 364, nama: "Intan Nurhalizah", gender: "P", sekolahAsal: "SDN TERLANGU 01", jalur: "Afirmasi", kelompokMPLS: "J" }
+{ no: 365, nama: "Juwita Alivia", gender: "P", sekolahAsal: "SDN BREBES 06", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 366, nama: "Lathisya Queena Susanto", gender: "P", sekolahAsal: "SD ISLAM AL AZHAR 53", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 367, nama: "Lenita Fitri Khairunnisa", gender: "P", sekolahAsal: "SDN BREBES 14", jalur: "Afirmasi", kelompokMPLS: "J" }
+{ no: 368, nama: "Maulana Malik Ibrohim", gender: "L", sekolahAsal: "MIS ISLAMIYAH", jalur: "Afirmasi", kelompokMPLS: "J" }
+{ no: 369, nama: "Mochammad Ardi Fairuz Rizky", gender: "L", sekolahAsal: "SDN KALIG. WETAN 04", jalur: "Afirmasi", kelompokMPLS: "J" }
+{ no: 370, nama: "Muhammad Akmal Hidayat", gender: "L", sekolahAsal: "SDN BREBES 08", jalur: "Afirmasi", kelompokMPLS: "J" }
+{ no: 371, nama: "Muhammad Fadhil Alfarizi", gender: "L", sekolahAsal: "SDN Siasem 03", jalur: "KKO", kelompokMPLS: "J" }
+{ no: 372, nama: "Mutiara Oktaviani", gender: "P", sekolahAsal: "SDN Brebes 01", jalur: "Mutasi", kelompokMPLS: "J" }
+{ no: 373, nama: "Rafa Faeyza Zafranian", gender: "L", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 374, nama: "Riska Intan Aprilia", gender: "P", sekolahAsal: "SDN GANDASULI 02", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 375, nama: "Rizqi Ananda Pratama", gender: "L", sekolahAsal: "MIN 6 BREBES", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 376, nama: "Rosana Dewi", gender: "P", sekolahAsal: "SDIT YAMMBA", jalur: "Prestasi", kelompokMPLS: "J" }
+{ no: 377, nama: "Salik Muhammad", gender: "L", sekolahAsal: "SDN LEMBARAWA 01", jalur: "Afirmasi", kelompokMPLS: "J" }
+{ no: 378, nama: "Salsabil Novita Rachmat", gender: "P", sekolahAsal: "SDN Cimanggung I", jalur: "Mutasi", kelompokMPLS: "J" }
+{ no: 379, nama: "Syafa'Atni Dwi Permata", gender: "P", sekolahAsal: "SDN PASARBATANG 07", jalur: "Afirmasi", kelompokMPLS: "J" }
+{ no: 380, nama: "Zavira Ebil Zuliyanti", gender: "P", sekolahAsal: "SDN PASARBATANG 07", jalur: "Domisili", kelompokMPLS: "J" }
+{ no: 381, nama: "Abdilla Abrar", gender: "L", sekolahAsal: "MIS AL IKHLAS", jalur: "Prestasi", kelompokMPLS: "K" }
+{ no: 382, nama: "Aishilla Sakhi", gender: "P", sekolahAsal: "SDN Pagejugan 02", jalur: "Mutasi", kelompokMPLS: "K" }
+{ no: 383, nama: "Akhmad Kaisal Fawazi", gender: "L", sekolahAsal: "SDN SIASEM 03", jalur: "Prestasi", kelompokMPLS: "K" }
+{ no: 384, nama: "Al Maidah Zahra Nurul Aini", gender: "P", sekolahAsal: "SDN TERLANGU 01", jalur: "Afirmasi", kelompokMPLS: "K" }
+{ no: 385, nama: "Alisha Khaira Wilda", gender: "P", sekolahAsal: "SDN WANGANDALEM 03", jalur: "Afirmasi", kelompokMPLS: "K" }
+{ no: 386, nama: "Almayra Nirwasita Gusti Arimbi", gender: "P", sekolahAsal: "SDN Brebes 03", jalur: "Mutasi", kelompokMPLS: "K" }
+{ no: 387, nama: "Amirah Dwi Rahmawati", gender: "P", sekolahAsal: "SDN BREBES 03", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 388, nama: "Andira Giovanni", gender: "L", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 389, nama: "Aqila Kaisya Putri Jafa", gender: "P", sekolahAsal: "MIS MIFTAHUL FALAH", jalur: "Prestasi", kelompokMPLS: "K" }
+{ no: 390, nama: "Arfa Mohammad Ghaisan A.", gender: "L", sekolahAsal: "SDN BREBES 03", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 391, nama: "Arofah Oktaviana Fauziah", gender: "P", sekolahAsal: "SDN KALIG. WETAN 03", jalur: "Prestasi", kelompokMPLS: "K" }
+{ no: 392, nama: "Bayu Saputra", gender: "L", sekolahAsal: "SDN WANGANDALEM 03", jalur: "Afirmasi", kelompokMPLS: "K" }
+{ no: 393, nama: "Beryl Zaura Gea Prakoso", gender: "P", sekolahAsal: "SDIT HARAPAN UMAT", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 394, nama: "Cindy Syasa Septianti", gender: "P", sekolahAsal: "SDN PASARBATANG 07", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 395, nama: "Dwi Aggeng Purnomo", gender: "L", sekolahAsal: "SDN SIASEM 01", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 396, nama: "Dwi Suci Yunita", gender: "P", sekolahAsal: "SDN BREBES 07", jalur: "Afirmasi", kelompokMPLS: "K" }
+{ no: 397, nama: "Dzakira Kusuma Wardani", gender: "P", sekolahAsal: "SDN BREBES 07", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 398, nama: "Evelyn Dumaris Sinurat", gender: "P", sekolahAsal: "SDN BREBES 03", jalur: "Prestasi", kelompokMPLS: "K" }
+{ no: 399, nama: "Fikri Aqilah Ardi Pratama", gender: "L", sekolahAsal: "SDN KALIG. WETAN 04", jalur: "Prestasi", kelompokMPLS: "K" }
+{ no: 400, nama: "Ghina Sabani", gender: "P", sekolahAsal: "SDN GANDASULI 02", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 401, nama: "Kanza Yusuf Ar Rasyid", gender: "L", sekolahAsal: "SDN Brebes 07", jalur: "KKO", kelompokMPLS: "K" }
+{ no: 402, nama: "Keanu Maherzan", gender: "L", sekolahAsal: "SDN KLAMPOK 01", jalur: "Afirmasi", kelompokMPLS: "K" }
+{ no: 403, nama: "Khazna Zakiyyah Najwa", gender: "P", sekolahAsal: "SDN PADASUGIH 03", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 404, nama: "Ladina Candrawati", gender: "P", sekolahAsal: "MIS BAROKATUL QURAN", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 405, nama: "Lintang Aurrera Assyfa", gender: "P", sekolahAsal: "MIS RAUD.THOLIBIN", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 406, nama: "M. Aqilla Habibi Wikma Putra B. Aji", gender: "L", sekolahAsal: "SDN BREBES 03", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 407, nama: "Mizka Ghiva Firli Azkia", gender: "P", sekolahAsal: "SDN BREBES 02", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 408, nama: "Moh. Mirza Al - Maziz I.", gender: "L", sekolahAsal: "SDIT NURUL HIDAYAH", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 409, nama: "Muhammad Farkhan Hanif", gender: "L", sekolahAsal: "SDN LEMBARAWA 01", jalur: "Afirmasi", kelompokMPLS: "K" }
+{ no: 410, nama: "Muhammad Nur Alphatah", gender: "L", sekolahAsal: "SDN Wanasari 01", jalur: "KKO", kelompokMPLS: "K" }
+{ no: 411, nama: "Muhammad Ubaydillah", gender: "L", sekolahAsal: "SDN SIASEM 01", jalur: "Prestasi", kelompokMPLS: "K" }
+{ no: 412, nama: "Muhammad Wafi Syaddad", gender: "L", sekolahAsal: "MIS SALAFIYAH LIMB.", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 413, nama: "Narendra Erabbani", gender: "L", sekolahAsal: "SDN BREBES 01", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 414, nama: "Nur Suci Anggraeyani", gender: "P", sekolahAsal: "SDN SIASEM 01", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 415, nama: "Prabu Putra Prayitno", gender: "L", sekolahAsal: "SDN KRASAK 01", jalur: "Afirmasi", kelompokMPLS: "K" }
+{ no: 416, nama: "Putri Juana Sahlan", gender: "P", sekolahAsal: "SDN PEMARON 01", jalur: "Prestasi", kelompokMPLS: "K" }
+{ no: 417, nama: "Silvia Laelatul Khiftiah Ramadhina", gender: "P", sekolahAsal: "SDN GANDASULI 02", jalur: "Domisili", kelompokMPLS: "K" }
+{ no: 418, nama: "Zalfa Rizqi Ayumna", gender: "P", sekolahAsal: "SDN DUKUHPAYUNG", jalur: "Domisili", kelompokMPLS: "K" }
+			
+            // Data lengkap ada di file CSV asli
+        ];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginBtn = document.getElementById('loginBtn');
+            const backBtn = document.getElementById('backBtn');
+            const nisnInput = document.getElementById('nisn');
+            const resultSection = document.getElementById('resultSection');
+            
+            loginBtn.addEventListener('click', function() {
+                const nisn = nisnInput.value.trim();
+                
+                if (!nisn) {
+                    alert('Silakan masukkan NISN Anda');
+                    return;
+                }
+                
+                // Cari siswa berdasarkan NISN
+                const siswa = siswaData.find(s => s.NISN === nisn);
+                
+                if (siswa) {
+                    // Tampilkan data siswa
+                    document.getElementById('nama').textContent = siswa.Nama;
+                    document.getElementById('nisnResult').textContent = siswa.NISN;
+                    document.getElementById('gender').textContent = siswa.Gender === 'L' ? 'Laki-laki' : 'Perempuan';
+                    document.getElementById('sekolahAsal').textContent = siswa['Sekolah Asal'];
+                    document.getElementById('jalur').textContent = siswa.Jalur;
+                    document.getElementById('kelompok').textContent = siswa['KELOMPOK MPLS'];
+                    
+                    // Tampilkan hasil dan sembunyikan form
+                    resultSection.style.display = 'block';
+                    document.querySelector('.login-section').style.display = 'none';
+                    
+                    // Scroll ke hasil
+                    resultSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    alert('NISN tidak ditemukan. Silakan cek kembali.');
+                    nisnInput.focus();
+                }
+            });
+            
+            backBtn.addEventListener('click', function() {
+                // Tampilkan form dan sembunyikan hasil
+                document.querySelector('.login-section').style.display = 'block';
+                resultSection.style.display = 'none';
+                
+                // Reset input
+                nisnInput.value = '';
+                nisnInput.focus();
+            });
+            
+            // Fokus ke input NISN saat halaman dimuat
+            nisnInput.focus();
+        });
+    </script>
+</body>
+</html>
